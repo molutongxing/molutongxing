@@ -1,18 +1,18 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-float money;//×Ü½ğ¶î
-int n; //ÓÃÓÚÑ¡Ôñ²Ëµ¥
+float money;//æ€»é‡‘é¢
+int n; //ç”¨äºé€‰æ‹©èœå•
 
-void init();//³õÊ¼º¯Êı
-void shouru();//ÊÕÈëº¯Êı
-void display();//ÏÔÊ¾Ö÷²Ëµ¥
-void zhichu();//Ö§³öº¯Êı
+void init();//åˆå§‹å‡½æ•°
+void shouru();//æ”¶å…¥å‡½æ•°
+void display();//æ˜¾ç¤ºä¸»èœå•
+void zhichu();//æ”¯å‡ºå‡½æ•°
 void display1();
 void mid();
 
 
-void main(){//Ö÷º¯Êı
+void main(){//ä¸»å‡½æ•°
 /*	FILE *fp;
 	char s[80];
 	int a ;
@@ -25,13 +25,13 @@ void main(){//Ö÷º¯Êı
 	init();
 }
 void init(){
-	display();//ÏÔÊ¾Ö÷²Ëµ¥
-	printf("ÇëÑ¡ÔñÒµÎñÀàĞÍ:");
+	display();//æ˜¾ç¤ºä¸»èœå•
+	printf("è¯·é€‰æ‹©ä¸šåŠ¡ç±»å‹:");
 	scanf("%d",&n);
 	while(1){
 		switch(n){
 		case 1:
-			system("cls");//ÇåÆÁ
+			system("cls");//æ¸…å±
 			shouru();
 			break;
 		case 2:
@@ -44,11 +44,11 @@ void init(){
 			break;
 		case 4:
 			exit(0);
-			printf("Ğ»Ğ»ÄúµÄÊ¹ÓÃ,ÔÙ¼û!");
+			printf("è°¢è°¢æ‚¨çš„ä½¿ç”¨,å†è§!");
 			break;
 		default:
 			system("cls");
-			printf("ÊäÈë´íÎó,ÇëÖØĞÂÊäÈë:\n");
+			printf("è¾“å…¥é”™è¯¯,è¯·é‡æ–°è¾“å…¥:\n");
 			init();
 			break;
 		}
@@ -58,13 +58,13 @@ void shouru(){
 	float d;
 	char c;
 //	printf("%6.2f\n", money);
-	printf("ÇëÊäÈë½ñÌìµÄÊÕÈë:");
+	printf("è¯·è¾“å…¥ä»Šå¤©çš„æ”¶å…¥:");
 	scanf("%f",&d);
 	printf("%6.2f\n",d);
 	money += d;
-	printf("±£´æ³É¹¦!!!");
-	printf("\nÏÖÔÚµÄ×Ü½ğ¶îÎª:%6.2f\n",money);
-	printf("ÊÇ·ñ¼ÌĞøÊäÈë:(y/n)\n");
+	printf("ä¿å­˜æˆåŠŸ!!!");
+	printf("\nç°åœ¨çš„æ€»é‡‘é¢ä¸º:%6.2f\n",money);
+	printf("æ˜¯å¦ç»§ç»­è¾“å…¥:(y/n)\n");
 	getchar();
 	c = getchar();
 	if (c == 'y'){
@@ -73,36 +73,36 @@ void shouru(){
 		system("cls");
 		init();
 	}else{
-		printf("³öÈë´íÎó,ÇëÖØĞÂÊäÈë!!");
+		printf("å‡ºå…¥é”™è¯¯,è¯·é‡æ–°è¾“å…¥!!");
 	}
 }
 void display(){
-	printf("©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´\n");
-	printf("©¦          1.ÊÕÈëĞÅÏ¢Ìí¼Ó            ©¦\n");
-	printf("©¦          2.Ö§³öĞÅÏ¢Ìí¼Ó            ©¦\n");
-	printf("©¦          3.²éÑ¯²ÆÎñĞÅÏ¢            ©¦\n");
-	printf("©¦          4.ÍË³ö                    ©¦\n");
-	printf("©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n");
+	printf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”\n");
+	printf("â”‚          1.æ”¶å…¥ä¿¡æ¯æ·»åŠ             â”‚\n");
+	printf("â”‚          2.æ”¯å‡ºä¿¡æ¯æ·»åŠ             â”‚\n");
+	printf("â”‚          3.æŸ¥è¯¢è´¢åŠ¡ä¿¡æ¯            â”‚\n");
+	printf("â”‚          4.é€€å‡º                    â”‚\n");
+	printf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n");
 }
 void display1(){
-	printf("©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´\n");
-	printf("©¦          1.°´Äê²éÑ¯                ©¦\n");
-	printf("©¦          2.°´ÔÂ²éÑ¯                ©¦\n");
-	printf("©¦          3.°´ÈÕ²éÑ¯                ©¦\n");
-	printf("©¦          4.ÍË³ö                    ©¦\n");
-	printf("©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n");
+	printf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”\n");
+	printf("â”‚          1.æŒ‰å¹´æŸ¥è¯¢                â”‚\n");
+	printf("â”‚          2.æŒ‰æœˆæŸ¥è¯¢                â”‚\n");
+	printf("â”‚          3.æŒ‰æ—¥æŸ¥è¯¢                â”‚\n");
+	printf("â”‚          4.é€€å‡º                    â”‚\n");
+	printf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n");
 }
 void zhichu(){
 	float d;
 	char c;
 	printf("%6.2f\n",money);
-	printf("ÇëÊäÈë½ñÌìµÄÖ§³ö:");
+	printf("è¯·è¾“å…¥ä»Šå¤©çš„æ”¯å‡º:");
 	scanf("%f",&d);
 	printf("%6.2f\n",d);
 	money -= d;
-	printf("±£´æ³É¹¦!!!");
-	printf("\nÏÖÔÚµÄ×Ü½ğ¶îÎª:%6.2f\n",money);
-	printf("ÊÇ·ñ¼ÌĞøÊäÈë:(y/n)\n");
+	printf("ä¿å­˜æˆåŠŸ!!!");
+	printf("\nç°åœ¨çš„æ€»é‡‘é¢ä¸º:%6.2f\n",money);
+	printf("æ˜¯å¦ç»§ç»­è¾“å…¥:(y/n)\n");
 	getchar();
 	c = getchar();
 	if (c == 'y'){
@@ -111,7 +111,7 @@ void zhichu(){
 		system("cls");
 		init();
 	}else{
-		printf("³öÈë´íÎó,ÇëÖØĞÂÊäÈë!!");
+		printf("å‡ºå…¥é”™è¯¯,è¯·é‡æ–°è¾“å…¥!!");
 	}
 }
 void mid(){
@@ -127,12 +127,12 @@ void mid(){
 		case 3:
 			break;
 		case 4:
-			system("cls");//ÇåÆÁ
+			system("cls");//æ¸…å±
 			init();
 			break;
 		default:
 			system("cls");
-			printf("ÊäÈë´íÎó,ÇëÖØĞÂÊäÈë!!!\n");
+			printf("è¾“å…¥é”™è¯¯,è¯·é‡æ–°è¾“å…¥!!!\n");
 			mid();
 			break;
 		}
