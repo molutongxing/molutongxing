@@ -1,17 +1,17 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
 char c; struct money{int month; int day;int hour; int min;float m; char information[20];};
-int n; //ÓÃÓÚÑ¡Ôñ²Ëµ¥
+int n; //ç”¨äºé€‰æ‹©èœå•
 
-void init();//³õÊ¼º¯Êı
-void shouru();//ÊÕÈëº¯Êı
-void display();//ÏÔÊ¾Ö÷²Ëµ¥
-void zhichu();//Ö§³öº¯Êı
-void display1();//²éÑ¯×Ó²Ëµ¥
-void query_year();//°´Äê²éÑ¯º¯Êı
-void query_month();//°´ÔÂ²éÑ¯º¯Êı
-void query_day();//°´Ìì²éÑ¯º¯Êı
+void init();//åˆå§‹å‡½æ•°
+void shouru();//æ”¶å…¥å‡½æ•°
+void display();//æ˜¾ç¤ºä¸»èœå•
+void zhichu();//æ”¯å‡ºå‡½æ•°
+void display1();//æŸ¥è¯¢å­èœå•
+void query_year();//æŒ‰å¹´æŸ¥è¯¢å‡½æ•°
+void query_month();//æŒ‰æœˆæŸ¥è¯¢å‡½æ•°
+void query_day();//æŒ‰å¤©æŸ¥è¯¢å‡½æ•°
 void mid();
 void write_file(struct money mm){	
 	FILE *fp;
@@ -36,8 +36,8 @@ void read_file_mon(struct money *mm,int i){
 		fscanf(fp,"%d.%d.%d.%d.%f.%s  ",&mm->month,&mm->day,&mm->hour,&mm->min,&mm->m,&mm->information);
 
 		if(mm->month == i){
-			printf("µÚ%dÌõ:",x++);
-			printf("%dÔÂ%dÈÕ %d:%d %6.2f %s\n",mm->month,mm->day,mm->hour,mm->min,mm->m,mm->information);
+			printf("ç¬¬%dæ¡:",x++);
+			printf("%dæœˆ%dæ—¥ %d:%d %6.2f %s\n",mm->month,mm->day,mm->hour,mm->min,mm->m,mm->information);
 		}
 	}
 }
@@ -52,23 +52,23 @@ void read_file_day(struct money *mm,int i,int j){
 	while(!feof(fp)){
 		fscanf(fp,"%d.%d.%d.%d.%f.%s  ",&mm->month,&mm->day,&mm->hour,&mm->min,&mm->m,&mm->information);
 		if(mm->month ==j&&mm->day == i){
-			printf("µÚ%dÌõ:",x++);
-			printf("%dÔÂ%dÈÕ %d:%d %6.2f %s\n",mm->month,mm->day,mm->hour,mm->min,mm->m,mm->information);
+			printf("ç¬¬%dæ¡:",x++);
+			printf("%dæœˆ%dæ—¥ %d:%d %6.2f %s\n",mm->month,mm->day,mm->hour,mm->min,mm->m,mm->information);
 		}
 	}
 }
-void main(){//Ö÷º¯Êı
+void main(){//ä¸»å‡½æ•°
 	init();	
 }
-void init(){  //³õÊ¼»¯º¯Êı£¬ÏÔÊ¾Ö÷½çÃæ
-	display();//ÏÔÊ¾Ö÷²Ëµ¥
-	char *wday[]={"ÈÕ","Ò»","¶ş","Èı","ËÄ","Îå","Áù"};
+void init(){  //åˆå§‹åŒ–å‡½æ•°ï¼Œæ˜¾ç¤ºä¸»ç•Œé¢
+	display();//æ˜¾ç¤ºä¸»èœå•
+	char *wday[]={"æ—¥","ä¸€","äºŒ","ä¸‰","å››","äº”","å…­"};
     time_t t;struct tm *p;time(&t);
 //	p=ctime(&t) ;
-	p=localtime(&t) ; /*È¡µÃµ±µØÊ±¼ä*/
-	printf ("%dÄê%dÔÂ%dÈÕ ", (1900+p->tm_year),( 1+p->tm_mon), p->tm_mday);
-	printf("ĞÇÆÚ%s Ê±¼ä:%d:%d:%d\n", wday[p->tm_wday],p->tm_hour, p->tm_min, p->tm_sec);
-	printf("ÇëÑ¡ÔñÒµÎñÀàĞÍ:");
+	p=localtime(&t) ; /*å–å¾—å½“åœ°æ—¶é—´*/
+	printf ("%då¹´%dæœˆ%dæ—¥ ", (1900+p->tm_year),( 1+p->tm_mon), p->tm_mday);
+	printf("æ˜ŸæœŸ%s æ—¶é—´:%d:%d:%d\n", wday[p->tm_wday],p->tm_hour, p->tm_min, p->tm_sec);
+	printf("è¯·é€‰æ‹©ä¸šåŠ¡ç±»å‹:");
 	scanf("%d",&n);
 	while(1){
 		switch(n){
@@ -79,56 +79,56 @@ void init(){  //³õÊ¼»¯º¯Êı£¬ÏÔÊ¾Ö÷½çÃæ
 		case 3:
 			mid();	break;
 		case 4:
-			printf("Ğ»Ğ»ÄúµÄÊ¹ÓÃ,ÔÙ¼û!\n"); exit(0); break;
+			printf("è°¢è°¢æ‚¨çš„ä½¿ç”¨,å†è§!\n"); exit(0); break;
 		default:
-			printf("ÊäÈë´íÎó,ÇëÖØĞÂÊäÈë:\n");init();break;
+			printf("è¾“å…¥é”™è¯¯,è¯·é‡æ–°è¾“å…¥:\n");init();break;
 		}
 	}	
 }
-void display(){//Ö÷²Ëµ¥
-	printf("©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´\n");
-	printf("©¦          1.ÊÕÈëĞÅÏ¢Ìí¼Ó            ©¦\n");
-	printf("©¦          2.Ö§³öĞÅÏ¢Ìí¼Ó            ©¦\n");
-	printf("©¦          3.²éÑ¯²ÆÎñĞÅÏ¢            ©¦\n");
-	printf("©¦          4.ÍË³ö                    ©¦\n");
-	printf("©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n");
+void display(){//ä¸»èœå•
+	printf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”\n");
+	printf("â”‚          1.æ”¶å…¥ä¿¡æ¯æ·»åŠ             â”‚\n");
+	printf("â”‚          2.æ”¯å‡ºä¿¡æ¯æ·»åŠ             â”‚\n");
+	printf("â”‚          3.æŸ¥è¯¢è´¢åŠ¡ä¿¡æ¯            â”‚\n");
+	printf("â”‚          4.é€€å‡º                    â”‚\n");
+	printf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n");
 }
-void display1(){//²éÑ¯²Ëµ¥
-	printf("©°©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©´\n");
-	printf("©¦          1.°´ÔÂ²éÑ¯                ©¦\n");
-	printf("©¦          2.°´ÈÕ²éÑ¯                ©¦\n");
-	printf("©¦          3.·µ»ØÖ÷²Ëµ¥              ©¦\n");
-	printf("©¸©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¤©¼\n");
+void display1(){//æŸ¥è¯¢èœå•
+	printf("â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”\n");
+	printf("â”‚          1.æŒ‰æœˆæŸ¥è¯¢                â”‚\n");
+	printf("â”‚          2.æŒ‰æ—¥æŸ¥è¯¢                â”‚\n");
+	printf("â”‚          3.è¿”å›ä¸»èœå•              â”‚\n");
+	printf("â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜\n");
 }
-void shouru(){//ÊÕÈëº¯Êı£¬Ìí¼Ó×Ô¼º½ñÌìµÄÊÕÈë
+void shouru(){//æ”¶å…¥å‡½æ•°ï¼Œæ·»åŠ è‡ªå·±ä»Šå¤©çš„æ”¶å…¥
 	float d;char ch;struct money mm;time_t timep;struct tm *p;time(&timep);p=localtime(&timep);
 	do{
-	printf("ÇëÊäÈë½ñÌìµÄÊÕÈë:");scanf("%f",&d);
-	fflush(stdin);printf("±¸×¢:");scanf("%s",mm.information);fflush(stdin);
-	printf("\nÊÕÈëÎª:%6.2f$,À´Ô´:%s\n",d,mm.information);
+	printf("è¯·è¾“å…¥ä»Šå¤©çš„æ”¶å…¥:");scanf("%f",&d);
+	fflush(stdin);printf("å¤‡æ³¨:");scanf("%s",mm.information);fflush(stdin);
+	printf("\næ”¶å…¥ä¸º:%6.2f$,æ¥æº:%s\n",d,mm.information);
 	mm.month=(p->tm_mon+1);mm.day=p->tm_mday;mm.hour=p->tm_hour;mm.min=p->tm_min;mm.m=d;
 	write_file(mm);
-	printf("ÊÇ·ñ¼ÌĞøÊäÈë:(y/n)\n");
+	printf("æ˜¯å¦ç»§ç»­è¾“å…¥:(y/n)\n");
 	ch=getchar();getchar();
 	}while(ch =='Y'||ch == 'y');
-	printf("ÒÑ»Øµ½Ö÷²Ëµ¥!!!\n");init();
+	printf("å·²å›åˆ°ä¸»èœå•!!!\n");init();
 }
-void zhichu(){//Ö§³öº¯Êı
+void zhichu(){//æ”¯å‡ºå‡½æ•°
 	float d;char ch;struct money mm;time_t timep;struct tm *p;time(&timep);p=localtime(&timep);
 	do{
-	printf("ÇëÊäÈë½ñÌìµÄÖ§³ö:");scanf("%f",&d);
-	fflush(stdin);printf("±¸×¢:");scanf("%s",mm.information);fflush(stdin);
-	printf("\nÖ§³öÎª:%6.2f$,ÓÃÓÚ%s\n",d,mm.information);
+	printf("è¯·è¾“å…¥ä»Šå¤©çš„æ”¯å‡º:");scanf("%f",&d);
+	fflush(stdin);printf("å¤‡æ³¨:");scanf("%s",mm.information);fflush(stdin);
+	printf("\næ”¯å‡ºä¸º:%6.2f$,ç”¨äº%s\n",d,mm.information);
 	mm.month=(p->tm_mon+1);mm.day=p->tm_mday;mm.hour=p->tm_hour;mm.min=p->tm_min;mm.m=-d;
 	write_file(mm);
-	printf("ÊÇ·ñ¼ÌĞøÊäÈë:(y/n)\n");
+	printf("æ˜¯å¦ç»§ç»­è¾“å…¥:(y/n)\n");
 	ch=getchar();getchar();
 	}while(ch =='Y'||ch == 'y');
-	printf("ÒÑ»Øµ½Ö÷²Ëµ¥!!!\n");init();
+	printf("å·²å›åˆ°ä¸»èœå•!!!\n");init();
 }
-void mid(){//²éÑ¯²Ëµ¥Ñ¡Ôñ
-	display1();//ÏÔÊ¾²éÑ¯½çÃæ
-	int n;printf("ÇëÑ¡ÔñÒµÎñÀàĞÍ:");
+void mid(){//æŸ¥è¯¢èœå•é€‰æ‹©
+	display1();//æ˜¾ç¤ºæŸ¥è¯¢ç•Œé¢
+	int n;printf("è¯·é€‰æ‹©ä¸šåŠ¡ç±»å‹:");
 	scanf("%d",&n);
 	while(1){
 		switch(n){
@@ -139,7 +139,7 @@ void mid(){//²éÑ¯²Ëµ¥Ñ¡Ôñ
 		case 3:
 			init();	break;
 		default:
-			printf("ÊäÈë´íÎó,ÇëÖØĞÂÊäÈë!!!\n");mid();break;
+			printf("è¾“å…¥é”™è¯¯,è¯·é‡æ–°è¾“å…¥!!!\n");mid();break;
 		}
 	}
 }
@@ -147,15 +147,15 @@ int funmonth(char c,int a) {
 	time_t timep;struct tm *p;time(&timep);p=localtime(&timep);struct money mm;
 	switch(c){
         case 'a':
-			if(a>1) {printf("²é¿´%dÔÂĞÅÏ¢\n",(a-1));read_file_mon(&mm,a-1);  a-=1;}
-			else{	printf("ÕâÒÑ¾­ÊÇÒ»ÔÂÀ²!!!\n");} break;
+			if(a>1) {printf("æŸ¥çœ‹%dæœˆä¿¡æ¯\n",(a-1));read_file_mon(&mm,a-1);  a-=1;}
+			else{	printf("è¿™å·²ç»æ˜¯ä¸€æœˆå•¦!!!\n");} break;
          case 'd':
-			 if(a<12) { printf("²é¿´%dÔÂĞÅÏ¢\n",(a+1));read_file_mon(&mm,a+1); a+=1; }
-		   else{	printf("ÕâÒÑ¾­ÊÇÊ®¶şÔÂÀ²!!!\n");} break; 
+			 if(a<12) { printf("æŸ¥çœ‹%dæœˆä¿¡æ¯\n",(a+1));read_file_mon(&mm,a+1); a+=1; }
+		   else{	printf("è¿™å·²ç»æ˜¯åäºŒæœˆå•¦!!!\n");} break; 
 		 case '0':
 			 mid();break;
 		 default:
-			 printf("ÊäÈë´íÎó!!!\n");break;
+			 printf("è¾“å…¥é”™è¯¯!!!\n");break;
      } 
 	return a;
 }
@@ -164,14 +164,14 @@ void query_month(){
 	struct money mm;
 	time_t timep;struct tm *p;time(&timep);p=localtime(&timep);
 	int flag=1, a=(1+p->tm_mon);
-	printf("ÏÖÔÚÊÇ%dÔÂ,±¾ÔÂĞÅÏ¢ÈçÏÂ:\n",(1+p->tm_mon));
+	printf("ç°åœ¨æ˜¯%dæœˆ,æœ¬æœˆä¿¡æ¯å¦‚ä¸‹:\n",(1+p->tm_mon));
 	read_file_mon(&mm,a);
 	do{
-	printf("°´a¡¢dÑ¡Ôñ²é¿´Ç°Ò»¸öÔÂ»òÕßºóÒ»¸öÔÂĞÅÏ¢,°´0·µ»ØÉÏÒ»¼¶\n");
+	printf("æŒ‰aã€dé€‰æ‹©æŸ¥çœ‹å‰ä¸€ä¸ªæœˆæˆ–è€…åä¸€ä¸ªæœˆä¿¡æ¯,æŒ‰0è¿”å›ä¸Šä¸€çº§\n");
 	fflush(stdin);
 	c = getchar();
 	a=funmonth(c,a);
-	printf("¼ÌĞø²é¿´Ã´£¿yes/no (ÊäÈë0ÔòÍË³ö):");
+	printf("ç»§ç»­æŸ¥çœ‹ä¹ˆï¼Ÿyes/no (è¾“å…¥0åˆ™é€€å‡º):");
 	scanf("%d",&flag);
 	fflush(stdin);
 	}while(flag);
@@ -180,29 +180,29 @@ int funday(char c,int a) {
 	time_t timep;struct tm *p;time(&timep);p=localtime(&timep);struct money mm;int b=(p->tm_mon+1);
 	switch(c){
         case 'a':
-			if(a>1) {printf("²é¿´%dºÅĞÅÏ¢\n",(a-1));read_file_day(&mm,a,b); a-=1;}
-			else{	printf("ÕâÒÑ¾­ÊÇÒ»ºÅÀ²!!!\n");} break;
+			if(a>1) {printf("æŸ¥çœ‹%då·ä¿¡æ¯\n",(a-1));read_file_day(&mm,a,b); a-=1;}
+			else{	printf("è¿™å·²ç»æ˜¯ä¸€å·å•¦!!!\n");} break;
          case 'd':
-			 if(a<31) { printf("²é¿´%dºÅĞÅÏ¢\n",(a+1));read_file_day(&mm,a,b); a+=1; }
-		   else{	printf("ÕâÒÑ¾­ÊÇ±¾ÔÂ×îºóÒ»ÌìÀ²!!!\n");} break; 
+			 if(a<31) { printf("æŸ¥çœ‹%då·ä¿¡æ¯\n",(a+1));read_file_day(&mm,a,b); a+=1; }
+		   else{	printf("è¿™å·²ç»æ˜¯æœ¬æœˆæœ€åä¸€å¤©å•¦!!!\n");} break; 
 		 case '0':
 			 mid();break;
 		 default:
-			 printf("ÊäÈë´íÎó!!!\n");break;
+			 printf("è¾“å…¥é”™è¯¯!!!\n");break;
      } 
 	return a;
 }
 void query_day(){
 	time_t timep;struct tm *p;time(&timep);p=localtime(&timep);struct money mm;
 	int flag=1, a=p->tm_mday,b=(p->tm_mon+1);
-	printf("ÏÖÔÚÊÇ%dºÅ\n",p->tm_mday);
+	printf("ç°åœ¨æ˜¯%då·\n",p->tm_mday);
 	read_file_day(&mm,a,b);
 	do{
-		printf("°´a¡¢dÑ¡Ôñ²é¿´Ç°Ò»Ìì»òÕßºóÒ»ÌìĞÅÏ¢,°´0·µ»ØÉÏÒ»¼¶\n");
+		printf("æŒ‰aã€dé€‰æ‹©æŸ¥çœ‹å‰ä¸€å¤©æˆ–è€…åä¸€å¤©ä¿¡æ¯,æŒ‰0è¿”å›ä¸Šä¸€çº§\n");
 		fflush(stdin);
 		c = getchar();
 		a=funday(c,a);
-		printf("¼ÌĞø²é¿´Ã´£¿yes/no (ÊäÈë0ÔòÍË³ö):");
+		printf("ç»§ç»­æŸ¥çœ‹ä¹ˆï¼Ÿyes/no (è¾“å…¥0åˆ™é€€å‡º):");
 		scanf("%d",&flag);
 		fflush(stdin);
 	}while(flag);
